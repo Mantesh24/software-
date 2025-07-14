@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNtaDXSXm+1XD/iNK64QyAU",
+      "authorship_tag": "ABX9TyNz6RKkT7cp6Y8BeUrLw+X/",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -23,92 +23,62 @@
         "colab_type": "text"
       },
       "source": [
-        "<a href=\"https://colab.research.google.com/github/Jayanthkumar7/software_demo/blob/main/Task_2_1734.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+        "<a href=\"https://colab.research.google.com/github/Jayanthkumar7/software_demo/blob/main/Task_4_whether_modeling.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
       ]
     },
     {
       "cell_type": "markdown",
       "source": [
-        "## Sample Problem with 4 kind of version's"
+        "# Whether Modeling using Quadratic Solution\n",
+        "`N.Jayanth Kumar`\n",
+        "\n",
+        "`Hu22csen0101734`"
       ],
       "metadata": {
-        "id": "tDJ68wL6KIRm"
+        "id": "VhK5AyD9Qk7r"
       }
     },
     {
       "cell_type": "code",
-      "execution_count": 3,
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "VdqhnSYkJjwe",
-        "outputId": "17bc6cb8-f5d8-4ce0-8266-5099dabfb245"
-      },
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "The LCM of 12 and 18 is 36.\n"
-          ]
-        }
-      ],
       "source": [
-        "#1. Hardcoding the variables\n",
+        "#Evaluation Function :\n",
         "\n",
-        "import math\n",
-        "\n",
-        "def calculate_lcm(a, b):\n",
-        "    if a == 0 or b == 0:\n",
-        "        return 0\n",
-        "    gcd = math.gcd(a, b)\n",
-        "    lcm = abs(a * b) // gcd\n",
-        "    return lcm\n",
-        "\n",
-        "\n",
-        "num1 = 12\n",
-        "num2 = 18\n",
-        "result = calculate_lcm(num1, num2)\n",
-        "print(f\"The LCM of {num1} and {num2} is {result}.\")\n"
-      ]
+        "def Temperature_modeling(a,b,c,time):\n",
+        "  temp  = a*time**2+b*time+c\n",
+        "  return temp"
+      ],
+      "metadata": {
+        "id": "ZPVXdpVNSXkw"
+      },
+      "execution_count": null,
+      "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "#1. Keyboard input from the user\n",
+        "# Version 1: Hardcoding the variables:\n",
         "\n",
-        "import math\n",
-        "\n",
-        "def calculate_lcm(a, b):\n",
-        "    if a == 0 or b == 0:\n",
-        "        return 0\n",
-        "    gcd = math.gcd(a, b)\n",
-        "    lcm = abs(a * b) // gcd\n",
-        "    return lcm\n",
-        "\n",
-        "\n",
-        "num1 = int(input(\"Enter the variable 1 value :\"))\n",
-        "num2 = int(input(\"Enter the variable 2 value :\"))\n",
-        "result = calculate_lcm(num1, num2)\n",
-        "print(f\"The LCM of {num1} and {num2} is {result}.\")"
+        "a=1\n",
+        "b=2\n",
+        "c=3\n",
+        "time = 4\n",
+        "temp = Temperature_modeling(a,b,c,time)\n",
+        "print(f\"the Temperature at time {time} is {temp}\")\n"
       ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
-        "id": "0X-vIZ1zKUtO",
-        "outputId": "815c6c33-53a5-4cd9-b59c-229c91585752"
+        "id": "eOa5LI46T0xg",
+        "outputId": "e5761a82-b5e2-4eed-d88a-e2aa8a69e512"
       },
-      "execution_count": 2,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "Enter the variable 1 value :6\n",
-            "Enter the variable 2 value :9\n",
-            "The LCM of 6 and 9 is 18.\n"
+            "the Temperature at time 4 is 27\n"
           ]
         }
       ]
@@ -116,40 +86,28 @@
     {
       "cell_type": "code",
       "source": [
-        "# 3.input from the text file (single - input)\n",
-        "\n",
-        "import math\n",
-        "\n",
-        "def calculate_lcm(a, b):\n",
-        "    if a == 0 or b == 0:\n",
-        "        return 0\n",
-        "    gcd = math.gcd(a, b)\n",
-        "    lcm = abs(a * b) // gcd\n",
-        "    return lcm\n",
-        "\n",
-        "\n",
-        "with open('single_input.txt','r') as file:\n",
-        "  a,b = file.read().strip().split()\n",
-        "  a = int(a)\n",
-        "  b = int(b)\n",
-        "  result = calculate_lcm(a,b)\n",
-        "  print(f\"The LCM of {a} and {b} is {result}.\")\n",
-        "\n"
+        "# Version 2 : Keyboard Input:\n",
+        "temp = Temperature_modeling(float(input('Enter a:')),float(input('Enter b:')),float(input('Enter c:')),int(input('Enter Time:')))\n",
+        "print(f\"the Temperature at time {time} is {temp}\")"
       ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
-        "id": "rPmT_hM0KiXt",
-        "outputId": "a018cd16-4676-446b-c2fd-b17b3686a980"
+        "id": "JHP6nYSvUSBo",
+        "outputId": "b96ae981-9f44-4d47-d6be-dd61ebb8f85e"
       },
-      "execution_count": 20,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "The LCM of 12 and 18 is 36.\n"
+            "Enter a:1\n",
+            "Enter b:2\n",
+            "Enter c:3\n",
+            "Enter Time:4\n",
+            "the Temperature at time 4 is 27\n"
           ]
         }
       ]
@@ -157,46 +115,67 @@
     {
       "cell_type": "code",
       "source": [
-        "# 4. input from the file with multiple inputs\n",
-        "\n",
-        "import math\n",
-        "\n",
-        "def calculate_lcm(a, b):\n",
-        "    if a == 0 or b == 0:\n",
-        "        return 0\n",
-        "    gcd = math.gcd(a, b)\n",
-        "    lcm = abs(a * b) // gcd\n",
-        "    return lcm\n",
-        "\n",
-        "\n",
-        "with open('multiple_input.txt','r') as files:\n",
+        "# Version 3: Single Input from the text file:\n",
+        "with open('whether_single.txt','r') as files:\n",
+        "  file = files.readline();\n",
+        "  a,b,c,time = file.split()\n",
+        "  a = float(a)\n",
+        "  b= float(b)\n",
+        "  c = float(c)\n",
+        "  time = int(time)\n",
+        "  temp = Temperature_modeling(a,b,c,time)\n",
+        "  print(f'The Temperature at time {time} is {temp}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZNa_lUm8VMvm",
+        "outputId": "ee8e4713-d28c-4830-d3ae-70501a84e426"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The Temperature at time 4 is 27.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Version 4: Multiple Input from the text file\n",
+        "with open('whether_multiple.txt','r') as files:\n",
         "  for file in files:\n",
-        "    a,b=file.strip().split()\n",
-        "    a = int(a)\n",
-        "    b= int(b)\n",
-        "    result = calculate_lcm(a,b)\n",
-        "    print(f\"The LCM of {a} and {b} is {result}.\")\n",
-        ""
+        "    a,b,c,time = file.strip().split()\n",
+        "    a = float(a)\n",
+        "    b=float(b)\n",
+        "    c = float(c)\n",
+        "    time = int(time)\n",
+        "\n",
+        "    temp = Temperature_modeling(a,b,c,time)\n",
+        "    print(f'The Temperature at time {time} is {temp}')"
       ],
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
         },
-        "id": "Ke_O_KrMMvT2",
-        "outputId": "78b8342b-780e-4168-8251-1ba57d4a7ca8"
+        "id": "y-hRzbbxZQ3f",
+        "outputId": "5448ecea-6f0b-4a51-cacd-bca2b9ba17f1"
       },
-      "execution_count": 30,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
           "text": [
-            "The LCM of 12 and 18 is 36.\n",
-            "The LCM of 6 and 2 is 6.\n",
-            "The LCM of 4 and 24 is 24.\n",
-            "The LCM of 5 and 50 is 50.\n",
-            "The LCM of 5 and 75 is 75.\n",
-            "The LCM of 4 and 30 is 60.\n"
+            "The Temperature at time 4 is 27.0\n",
+            "The Temperature at time 3 is 6.0\n",
+            "The Temperature at time 2 is 11.0\n",
+            "The Temperature at time 6 is 16.0\n"
           ]
         }
       ]
